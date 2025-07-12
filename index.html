@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Consumption Across the Political Spectrum: A Comprehensive Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .chart-container {
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .podcast-player {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+        }
+        
+        .finding-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .finding-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">News Consumption Across the Political Spectrum</h1>
+                <p class="text-xl md:text-2xl font-light opacity-90">A Comprehensive Analysis of Media Consumption Patterns</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        
+        <!-- Podcast Player Section -->
+        <section class="mb-12">
+            <div class="podcast-player">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-32 h-32 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/5141ce01-797b-494a-b379-5fcbf8096efc" alt="Podcast Cover" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold mb-2">🎧 Listen to the Full Analysis</h2>
+                        <p class="text-white opacity-90 mb-4">Duration: 5 minutes 47 seconds | Format: Two-host dialogue</p>
+                        <audio controls class="w-full">
+                            <source src="https://cdn1.genspark.ai/user-upload-image/8/a2b5bf28-3803-4012-bd9a-05e08bd26a13.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Statistics -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Key Statistics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg">
+                    <div class="stat-number">57%</div>
+                    <p class="text-gray-600">Republicans get news from Fox News</p>
+                </div>
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg">
+                    <div class="stat-number">58%</div>
+                    <p class="text-gray-600">Democrats trust CNN</p>
+                </div>
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg">
+                    <div class="stat-number">58%</div>
+                    <p class="text-gray-600">Republicans distrust CNN</p>
+                </div>
+                <div class="text-center bg-white p-6 rounded-lg shadow-lg">
+                    <div class="stat-number">79%</div>
+                    <p class="text-gray-600">Gen Z & Millennials get news daily</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Source Diversity Chart -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">News Source Diversity by Political Affiliation</h3>
+                <div class="chart-container">
+                    <canvas id="sourceDiversityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Levels Chart -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">Trust Levels in Major News Sources</h3>
+                <div class="chart-container">
+                    <canvas id="trustChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Findings -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Key Findings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="finding-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-balance-scale text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">The Asymmetrical Divide</h3>
+                    <p class="text-gray-600">Democrats consume from a wide range of sources, while Republicans concentrate heavily on Fox News and select conservative outlets.</p>
+                </div>
+                
+                <div class="finding-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-red-600 mb-4">
+                        <i class="fas fa-brain text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Partisanship Trumps Truth</h3>
+                    <p class="text-gray-600">People are more likely to reject TRUE information that challenges their worldview than accept FALSE information that confirms it.</p>
+                </div>
+                
+                <div class="finding-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-green-600 mb-4">
+                        <i class="fas fa-shield-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Identity Protection</h3>
+                    <p class="text-gray-600">Our brains act like "security guards," filtering information to protect our political identity and group membership.</p>
+                </div>
+                
+                <div class="finding-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-purple-600 mb-4">
+                        <i class="fas fa-robot text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Algorithmic Amplification</h3>
+                    <p class="text-gray-600">Social media algorithms create echo chambers by limiting exposure to opposing viewpoints, even when users subscribe to diverse sources.</p>
+                </div>
+                
+                <div class="finding-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-orange-600 mb-4">
+                        <i class="fas fa-users text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Generational Shift</h3>
+                    <p class="text-gray-600">Gen Z and Millennials increasingly trust individual creators on social platforms over traditional institutional sources.</p>
+                </div>
+                
+                <div class="finding-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-graduation-cap text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Education Doesn't Protect</h3>
+                    <p class="text-gray-600">Higher education and reasoning ability don't protect against partisan bias in news consumption and interpretation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generational Preferences Chart -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">News Platform Preferences by Generation</h3>
+                <div class="chart-container">
+                    <canvas id="generationalChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Psychological Mechanisms -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Psychological Mechanisms</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">
+                            <i class="fas fa-search mr-2"></i>Confirmation Bias
+                        </h3>
+                        <p class="text-gray-600 mb-4">The tendency to seek information that confirms existing beliefs while avoiding contradictory evidence.</p>
+                        
+                        <h3 class="text-xl font-bold mb-4 text-red-600">
+                            <i class="fas fa-lightbulb mr-2"></i>Motivated Reasoning
+                        </h3>
+                        <p class="text-gray-600 mb-4">Actively looking for reasons to justify predetermined conclusions rather than objectively evaluating evidence.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-green-600">
+                            <i class="fas fa-users mr-2"></i>Social Identity Theory
+                        </h3>
+                        <p class="text-gray-600 mb-4">Deriving self-worth from group membership, making political tribe a primary source of identity.</p>
+                        
+                        <h3 class="text-xl font-bold mb-4 text-purple-600">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>Cognitive Dissonance
+                        </h3>
+                        <p class="text-gray-600 mb-4">Discomfort when confronted with information that contradicts existing beliefs or values.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Perfect Storm -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8">The Perfect Storm</h2>
+            <div class="bg-gradient-to-r from-red-50 to-blue-50 rounded-lg p-8">
+                <div class="text-center mb-6">
+                    <p class="text-lg text-gray-700">Current media landscape creates ideal conditions for polarization through:</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-building text-2xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Structural Asymmetry</h4>
+                        <p class="text-sm text-gray-600">Different consumption patterns between political groups</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-cogs text-2xl text-red-600"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Algorithmic Amplification</h4>
+                        <p class="text-sm text-gray-600">Technology that reinforces existing preferences</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-brain text-2xl text-green-600"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Psychological Predisposition</h4>
+                        <p class="text-sm text-gray-600">Natural tendency to defend tribal identity</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line-down text-2xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Declining Trust</h4>
+                        <p class="text-sm text-gray-600">Erosion of shared authoritative sources</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center mb-6">The Bottom Line</h2>
+                <div class="prose prose-lg max-w-4xl mx-auto">
+                    <p class="text-gray-700 mb-4">
+                        This analysis reveals that news consumption patterns aren't simply about preference—they're deeply intertwined with identity, psychology, and technology. The divide isn't just about different sources; it's about fundamentally different information ecosystems that shape how we understand reality itself.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        The most concerning finding? Education and reasoning ability don't protect against these biases. This suggests that bridging the divide requires more than just better media literacy—it demands conscious effort to overcome our natural psychological defenses.
+                    </p>
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-blue-800">Key Takeaway</h3>
+                        <p class="text-blue-700">
+                            Understanding these patterns is the first step toward more informed consumption and, potentially, a more shared understanding of facts in our democratic society.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="mb-12">
+            <div class="gradient-bg rounded-lg p-8 text-white text-center">
+                <h2 class="text-2xl font-bold mb-4">What's Your Next Step?</h2>
+                <p class="text-lg mb-6">
+                    The podcast challenges listeners to identify one concrete action they can take this week to engage with perspectives beyond their usual media comfort zone.
+                </p>
+                <div class="bg-white bg-opacity-20 rounded-lg p-4 inline-block">
+                    <p class="text-sm">
+                        <i class="fas fa-quote-left mr-2"></i>
+                        Knowing that your brain is built to filter the world this way, what is one small, concrete step you could take this week to consciously look past your own mental security guard?
+                        <i class="fas fa-quote-right ml-2"></i>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p>&copy; 2025 News Consumption Analysis. Based on comprehensive research from Pew Research Center, Stanford University, and other leading institutions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Source Diversity Chart
+        const sourceDiversityCtx = document.getElementById('sourceDiversityChart').getContext('2d');
+        new Chart(sourceDiversityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Democrats', 'Republicans'],
+                datasets: [{
+                    label: 'Number of Trusted Sources',
+                    data: [12, 3],
+                    backgroundColor: ['#3B82F6', '#EF4444'],
+                    borderColor: ['#1D4ED8', '#DC2626'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 15
+                    }
+                }
+            }
+        });
+
+        // Trust Chart
+        const trustCtx = document.getElementById('trustChart').getContext('2d');
+        new Chart(trustCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Fox News', 'CNN', 'NPR', 'The New York Times', 'ABC News'],
+                datasets: [{
+                    label: 'Republican Trust (%)',
+                    data: [56, 21, 15, 12, 25],
+                    backgroundColor: '#EF4444'
+                }, {
+                    label: 'Democrat Trust (%)',
+                    data: [18, 58, 52, 49, 46],
+                    backgroundColor: '#3B82F6'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 70
+                    }
+                }
+            }
+        });
+
+        // Generational Chart
+        const generationalCtx = document.getElementById('generationalChart').getContext('2d');
+        new Chart(generationalCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Social Media', 'Traditional TV', 'Online News Sites', 'Podcasts', 'Print Media'],
+                datasets: [{
+                    label: 'Gen Z/Millennials (%)',
+                    data: [45, 15, 25, 12, 3],
+                    backgroundColor: [
+                        '#8B5CF6',
+                        '#06B6D4',
+                        '#10B981',
+                        '#F59E0B',
+                        '#EF4444'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
